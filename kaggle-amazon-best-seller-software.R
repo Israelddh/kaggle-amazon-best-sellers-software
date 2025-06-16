@@ -104,7 +104,11 @@ p2 <- ggplot(data_clean, aes(x = product_num_ratings)) +
   theme_minimal() +
   labs(title = "Distribution of Number of Reviews", x = "Number of Reviews", y = "Count")
 print(p2)
-ggsave("Plots/02_review_distribution.png", plot = p2, width = 8, height = 6, bg = "white")
+
+# Guardar p2 con fondo blanco usando png()
+png("Plots/02_review_distribution.png", width = 8*72, height = 6*72, bg = "white", res = 96)
+print(p2)
+dev.off()
 
 # ================================
 # Scatter plot: Price vs. Number of Reviews
@@ -117,10 +121,12 @@ p3 <- ggplot(data_clean, aes(x = product_price_clean, y = product_num_ratings)) 
   theme_minimal() +
   labs(title = "Price vs. Number of Reviews", x = "Price ($)", y = "Number of Reviews")
 print(p3)
-ggsave("Plots/03_price_vs_reviews.png", plot = p3, width = 8, height = 6, bg = "white")
+
+# Guardar p3 con fondo blanco usando png()
+png("Plots/03_price_vs_reviews.png", width = 8*72, height = 6*72, bg = "white", res = 96)
+print(p3)
+dev.off()
 
 # ===
 
 # Status: 🚧 Work in Progress
-
-
