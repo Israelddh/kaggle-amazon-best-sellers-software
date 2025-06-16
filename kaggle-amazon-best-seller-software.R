@@ -1,4 +1,3 @@
-
 # Amazon Best Sellers Analysis: Software Category
 # Author: Israel David Duarte Herrera
 # Contact: www.linkedin.com/in/israel-duarte
@@ -36,6 +35,13 @@ library(visdat)
 library(hivecolors)
 
 # ================================
+# Create Plots folder if not exists
+# ================================
+if (!dir.exists("Plots")) {
+  dir.create("Plots")
+}
+
+# ================================
 # Load dataset
 # ================================
 data <- read.csv("amazon_best_sellers_software.csv", stringsAsFactors = FALSE)
@@ -58,7 +64,7 @@ sum(is.na(data$product_price_clean))
 # Visualize missing data
 # ================================
 vis_miss(data)
-ggsave("Plots/00_missing_data_overview.png", width = 8, height = 6)
+ggsave("Plots/00_missing_data_overview.png", width = 8, height = 6, bg = "white")
 
 # ================================
 # Handle missing star ratings
@@ -82,7 +88,7 @@ p1 <- ggplot(data_clean, aes(x = product_star_rating)) +
   theme_minimal() +
   labs(title = "Distribution of Product Star Ratings", x = "Star Rating", y = "Count")
 print(p1)
-ggsave("Plots/01_star_rating_distribution.png", plot = p1, width = 8, height = 6)
+ggsave("Plots/01_star_rating_distribution.png", plot = p1, width = 8, height = 6, bg = "white")
 
 # ================================
 # Check and plot distribution of number of reviews
@@ -98,7 +104,7 @@ p2 <- ggplot(data_clean, aes(x = product_num_ratings)) +
   theme_minimal() +
   labs(title = "Distribution of Number of Reviews", x = "Number of Reviews", y = "Count")
 print(p2)
-ggsave("Plots/02_review_distribution.png", plot = p2, width = 8, height = 6)
+ggsave("Plots/02_review_distribution.png", plot = p2, width = 8, height = 6, bg = "white")
 
 # ================================
 # Scatter plot: Price vs. Number of Reviews
@@ -111,10 +117,10 @@ p3 <- ggplot(data_clean, aes(x = product_price_clean, y = product_num_ratings)) 
   theme_minimal() +
   labs(title = "Price vs. Number of Reviews", x = "Price ($)", y = "Number of Reviews")
 print(p3)
-ggsave("Plots/03_price_vs_reviews.png", plot = p3, width = 8, height = 6)
+ggsave("Plots/03_price_vs_reviews.png", plot = p3, width = 8, height = 6, bg = "white")
 
 # ===
 
-
-
 # Status: 🚧 Work in Progress
+
+
