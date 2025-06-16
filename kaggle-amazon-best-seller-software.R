@@ -105,8 +105,7 @@ p2 <- ggplot(data_clean, aes(x = product_num_ratings)) +
   labs(title = "Distribution of Number of Reviews", x = "Number of Reviews", y = "Count")
 print(p2)
 
-# Guardar p2 con fondo blanco usando png()
-png("Plots/02_review_distribution.png", width = 8*72, height = 6*72, bg = "white", res = 96)
+png("Plots/02_review_distribution.png", width = 1600, height = 1200, res = 200, bg = "white")
 print(p2)
 dev.off()
 
@@ -119,14 +118,15 @@ cat("Correlation between price and number of reviews: ", correlation, "\n")
 p3 <- ggplot(data_clean, aes(x = product_price_clean, y = product_num_ratings)) +
   geom_point(alpha = 0.5, color = hivecolors::hive_colors(10)[4]) +
   theme_minimal() +
-  labs(title = "Price vs. Number of Reviews", x = "Price ($)", y = "Number of Reviews")
+  labs(title = "Price vs. Number of Reviews", x = "Price ($)", y = "Number of Reviews", width = 1600, height = 1200, res = 200, bg = "white")
 print(p3)
 
-# Guardar p3 con fondo blanco usando png()
-png("Plots/03_price_vs_reviews.png", width = 8*72, height = 6*72, bg = "white", res = 96)
+# Guardar p3 con fondo blanco y alta resolución
+png("Plots/03_price_vs_reviews.png", width = 1600, height = 1200, res = 200, bg = "white")
 print(p3)
 dev.off()
 
 # ===
 
 # Status: 🚧 Work in Progress
+
