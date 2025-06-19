@@ -126,7 +126,26 @@ png("Plots/03_price_vs_reviews.png", width = 1600, height = 1200, res = 200, bg 
 print(p3)
 dev.off()
 
-# ===
+
+
+
+
+# ================================
+# Analyze distribution of product prices
+# ================================
+# Summary and percentiles
+summary(data_clean$product_price_clean)
+quantile(data_clean$product_price_clean, probs = c(0.75, 0.9, 0.95, 0.99), na.rm = TRUE)
+
+# Plot price distribution
+p4 <- ggplot(data_clean, aes(x = product_price_clean)) +
+  geom_histogram(binwidth = 500, fill = hivecolors::hive_colors(10)[4], color = "black", alpha = 0.7) +
+  theme_minimal() +
+  labs(title = "Distribution of Product Prices", x = "Price ($)", y = "Count")
+print(p4)
+ggsave("Plots/04_price_distribution.png", plot = p4, width = 8, height = 6, bg = "white")
+
+
 
 # Status: 🚧 Work in Progress
 
